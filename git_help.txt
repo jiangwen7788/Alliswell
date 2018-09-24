@@ -1,0 +1,12 @@
+1、mkdir test： 创建文件名为test的文件家
+   cd test:进入到test文件家目录下
+   pwd :显示当前的目录路径
+   git init:将该目录变成git可以管理的的仓库
+2、git add readme.txt 将该文件添加到本地仓刻库 
+3、git commit -m "修改或者添加内容描述" :将修改文件提交到本地仓库
+4、git log 查看提交记录
+5、git reset --hard HEAD^ 回退到上一个版本 当前版本为：HEAD 上一个版本为 HEAD^ 上上个版本为：HEAD^^ 上100个版本：HEAD~100
+6、cat 文件名 :查看文件内容
+7、git reflog:查看每一次提交的命令；与git reset --hard 提交ID  结合使用：用于回到那个版本
+8、git status 查看文件的状态
+9、
