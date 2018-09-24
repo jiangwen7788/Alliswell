@@ -9,4 +9,8 @@
 6、cat 文件名 :查看文件内容
 7、git reflog:查看每一次提交的命令；与git reset --hard 提交ID  结合使用：用于回到那个版本
 8、git status 查看文件的状态
-9、去去去
+9、git checkout -- 文件名 :把文件在工作区的修改全部撤销
+    a:test.txt 自修改后还没有被放到暂存区，现在，撤销修改就回到和版本一模一样的状态
+    b:test.txt 已经添加到暂存区，又做了修改，现在撤销修改就回到添加到暂存区后的状态
+    总结：就是让文件回到最近一次git commit或者git add 时的状态
+10、提交到暂存区后，回退：git checkout 
