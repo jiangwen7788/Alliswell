@@ -25,5 +25,34 @@
 15、要克隆一个仓库，首先必须知道仓库的地址，然后使用git clone命令克隆。Git支持多种协议，包括https，但通过ssh支持的原生git协议速度最快。
 16、 git checkout -b dev 创建 dev分支  -b 参数表示创建并切换，相当于；两条命令： a、git branch dev  b、git checkout dev
 17、 git branch 命令会列出所有的分支，当前分支千面会标一个*号
-18、  
- 
+18、  当Git无法自动合并分支时，就必须首先解决冲突。解决冲突后，再提交，合并完成。解决冲突就是把Git合并失败的文件手动编辑为我们希望的内容，再提交。用git log --graph命令可以看到分支合并图。
+19、git merge --no-ff -m "merge with no-ff" dev: 本次合并并要创建一个新的commit 所以加上-m 参数，把commit描述写进去
+20、bug分支:Git还提供了一个stash功能，可以把当前工作现场“储藏”起来，等以后恢复现场后继续工作
+21、使用git stash 后，实际把内容存在某一个地方，恢复方法为：
+      a、是用 git stash apply 恢复 但是恢复后，stash 内容并不删除，你需要用git stash drop 来删除
+      b、是用 git stash pop ,恢复的同时把stash内容也删了
+22、可以多次 stash 使用git stash list 查看，然后恢复指定的stash:用命令：git stash apply stash@{0} 
+     修改bug总结：修复bug时，我们会通过创建新的bug分支进行修复，然后合并，最后删除；当手头工作没有完成时，先把工作现场git stash一下，然后去修复bug，修复后，再git stash pop，回到工作现场
+23、开发一个新feature，最好新建一个分支；如果要丢弃一个没有被合并过的分支，可以通过git branch -D <name>强行删除。
+24、git remote : 查看远程分支 获取更详细信息 ：git remote -v
+25、git push origin master :将该分支上的所有本地提交推送到远程库，推送时，要指定本地分支，这样，git就推送到对应的远程分支上例：git push origin dev 推送到dev分支上
+26、 因此，多人协作的工作模式通常是这样：
+     a、首先，可以试图用git push origin <branch-name>推送自己的修改；
+
+     b、如果推送失败，则因为远程分支比你的本地更新，需要先用git pull试图合并；
+
+     c、如果合并有冲突，则解决冲突，并在本地提交；
+
+     d、没有冲突或者解决掉冲突后，再用git push origin <branch-name>推送就能成功！
+27、查看远程库信息，使用git remote -v；
+
+   a、本地新建的分支如果不推送到远程，对其他人就是不可见的；
+
+   b、从本地推送分支，使用git push origin branch-name，如果推送失败，先用git pull抓取远程的新提交；
+
+   c、在本地创建和远程分支对应的分支，使用git checkout -b branch-name origin/branch-name，本地和远程分支的名称最好一致；
+
+   d、建立本地分支和远程分支的关联，使用git branch --set-upstream branch-name origin/branch-name；
+
+   e、从远程抓取分支，使用git pull，如果有冲突，要先处理冲突。
+28、
