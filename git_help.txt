@@ -9,4 +9,4 @@
 6、cat 文件名 :查看文件内容
 7、git reflog:查看每一次提交的命令；与git reset --hard 提交ID  结合使用：用于回到那个版本
 8、git status 查看文件的状态
-9、
+9、去去去
